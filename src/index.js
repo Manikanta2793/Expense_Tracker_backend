@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
+import mongoose from "mongoose"
 import ConnectDb from "./config/database.js"
-import router from "./routes/registerRoute.js"
 import { expenseRouter } from "./routes/expenseRoutes.js";
 
 const app = express();
@@ -16,7 +16,6 @@ app.use(cors({
 
 app.use(express.json())
 
-app.use("/register",router)
 app.use("/api/v2/expense",expenseRouter)
 
 ConnectDb();
